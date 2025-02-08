@@ -1,7 +1,7 @@
 /* ========== Overall Styles ========== */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f5e6e8;
     color: #333;
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
 
 /* ========== Header ========== */
 header {
-    background: linear-gradient(to right, #ff85a2, #6600cc);
+    background: linear-gradient(to right, #aaa1c8, #967aa1);
     color: white;
     padding: 20px;
 }
@@ -90,7 +90,7 @@ li {
 .article-container h2 {
     font-size: 28px;
     margin-bottom: 15px;
-    color: #9e68d4; 
+    color:  #967aa1; 
     text-decoration: underline;
 }
 
@@ -105,7 +105,7 @@ li {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #9e68d4; 
+    color:  #967aa1; 
 }
 
 .article-container code {
@@ -121,7 +121,7 @@ li {
 }
 
 .article-container li b {
-    color: #9e68d4; 
+    color:  #967aa1; 
 }
 /* ========== Buttons ========== */
 .button {
@@ -136,6 +136,6 @@ li {
 }
 
 .button:hover {
-    background: linear-gradient(to right, #ff85a2, #6600cc);
+    background:  #967aa1;
     color: white;
 }

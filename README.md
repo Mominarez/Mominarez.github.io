@@ -16,4 +16,4 @@ Welcome to my profile! I'm a **Computer Science student** with a focus on **web 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Mominarez&show_icons=true&count_private=true&hide=prs&theme=radical)
 
 ### 🤗 **Let's Connect:**
-- [LinkedIn]((https://www.linkedin.com/in/momina-r-24468534b/))
+- [LinkedIn](https://www.linkedin.com/in/momina-r-24468534b/)

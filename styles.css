@@ -16,11 +16,11 @@ body {
 
 /* ========== Header ========== */
 header {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #aaa1c8, #967aa1);
-    color: white;
     padding: 20px;
-
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #aeadaf, #aeadaf,#aeadaf, #aeadaf,#aeadaf);
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 1.51);
 }
 
 .title{
@@ -42,7 +42,7 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: #fdfdfd;
     font-size: 18px;
     font-weight: bold;
     display:inline-block;
@@ -51,7 +51,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #fdfdfd;
+    color: rgb(136, 131, 131);
     transform: translate(0, -7px);
     box-shadow: 0px 32px 25px -8px rgba(0, 0, 0, .2);
     transition: all 0.5s linear;
@@ -61,10 +61,11 @@ nav a:hover {
 main {
     margin: 20px auto;
     padding: 40px;
+    margin-bottom: 50px;
     max-width: 700px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   /*== box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);==*/
 }
 
 .pulse{
@@ -88,12 +89,17 @@ main {
 }
 
 .index-main{
+    background-image: url("assets/images/officialhome.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:initial;
     padding: 400px;
-    max-width: 900px;
-    background: white;
+    max-width: 500px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    /*==box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);==*/
+} 
+
 /*===== cbox =====*/
 
 .chatbox-container {
@@ -215,7 +221,7 @@ li {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ff4f4f4;
+    background-color: #f4f4f4;
 }
 
 .blog-card a {
@@ -272,13 +278,14 @@ li {
 /*========footer =======*/
 footer{
     padding: 20px;
-    background: linear-gradient(to right, #aaa1c8, #967aa1); 
-    color: #f5e6e8; 
+    background: linear-gradient(to top, #aeadaf, #aeadaf,#aeadaf, #bcbcbd, #dfdddd); 
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 3.3);
+    color: white;
     text-align: center;
     font-size: 0.9em;
 }
 .social-icon {
-    color: #f5e6e8; 
+    color: white; 
     text-decoration: none;
     margin: 0 15px;
     font-size: 1.5em; 
@@ -286,7 +293,7 @@ footer{
 }
 
 .social-icon:hover {
-    color: #967aa1;
+   color: rgb(136, 131, 131);
 }
 
 .blog-image{
@@ -310,18 +317,22 @@ footer{
     color:#967aa1;
 }
 /* ========== Buttons ========== */
-.button {
+.index-main .button {
     display: inline-block;
     background-color: white;
     color: #1b1a1b;
-    padding: 10px 10px;
-    border: 2px solid #967aa1;
+    padding: 11px 11px;
+    border: 2px solid #aeadaf;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 16px;
     text-decoration: none;
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .button:hover {
-    background:  #967aa1;
-    color: white;
+    background:  white;
+    color: #aeadaf;
 }

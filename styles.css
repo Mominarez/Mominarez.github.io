@@ -18,9 +18,10 @@ body {
 header {
     padding: 20px;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #aeadaf, #aeadaf,#aeadaf, #aeadaf,#aeadaf);
+    background: linear-gradient(to bottom,  #aeadaf, #aeadaf,#aeadaf, #bcbcbd, #dfdddd);
     color: white;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 1.51);
+    /*==box-shadow: 0 4px 10px rgba(255, 255, 255, 1.51);==*/
 }
 
 .title{

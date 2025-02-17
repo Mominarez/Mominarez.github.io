@@ -124,15 +124,18 @@ main {
 /* ========== Article Container ========== */
 .article-container {
     text-align: left; 
-    padding:20px; 
-    max-width: 800px; 
-    margin: 0 auto; 
+    padding: 20px; 
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* ========== About Page Sections ========== */
+.about-container{
+    margin-top: 55px;
+}
 .about-section {
-    text-align: left;
     padding: 20px;
+    text-align: left;
 }
 
 .my-goals, .fun-facts {
@@ -157,7 +160,7 @@ li {
 .article-container h2 {
     font-size: 28px;
     margin-bottom: 15px;
-    color:  #967aa1; 
+    color:  #d890d2; 
     text-decoration: underline;
 }
 
@@ -172,7 +175,7 @@ li {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 20px;
-    color:  #967aa1; 
+    color:  #d890d2; 
 }
 
 .article-container code {
@@ -188,7 +191,16 @@ li {
 }
 
 .article-container li b {
-    color:  #967aa1; 
+    color:  #d890d2; 
+}
+
+.link-change{
+    color:#d890d2;
+}
+
+/*========Blog Header Images======*/
+.image-quote{
+    margin: 20px;
 }
 /*======== Blog Layout ========*/
 .blog-list {
@@ -260,7 +272,7 @@ li {
 .blog-card:hover h3 {
     transform: scale(1.1);
     background-color: #fff;
-    color: #967aa1;
+    color: #f1b1d1;
 }
 
 .blog-card:hover a {

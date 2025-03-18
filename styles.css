@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur), auto !important;
 }
 
 /* ========== Header ========== */
@@ -49,6 +50,7 @@ nav a {
     display:inline-block;
     transform: translate(0, 0);
     transition: all 0.5s linear;
+    cursor: pointer;
 }
 
 nav a:hover {
@@ -157,11 +159,22 @@ li {
 }
 
 /* ========== Blog Styles ========== */
-.article-container h2 {
+.article-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(209, 196, 202, 0.7);
+}
+
+.article-container h1, .article-container h2 {
+    font-family: Verdana, sans-serif;
     font-size: 28px;
     margin-bottom: 15px;
     color:  #d890d2; 
     text-decoration: underline;
+    text-align: center;
 }
 
 .article-container p {
@@ -176,10 +189,6 @@ li {
     line-height: 1.6;
     margin-bottom: 20px;
     color:  #d890d2; 
-}
-
-.article-container code {
-    font-family: "Courier New";
 }
 
 .article-container ul {
@@ -343,9 +352,47 @@ footer{
     bottom: -55px;
     left: 50%;
     transform: translate(-50%);
+    z-index: 9999;
 }
+
 
 .button:hover {
     background:  white;
     color: #aeadaf;
 }
+
+/*https://www.w3schools.com/css/css3_mediaqueries.asp*/
+@media screen and (max-width: 600px) {
+    .index-main {
+        padding: 180px; 
+    }
+
+    .index-main button {
+        width: 90%; 
+        font-size: 18px;
+    }
+
+    .chatbox-container {
+        width: 100%;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .index-main {
+        padding: 100px; 
+    }
+
+    .index-main button {
+        width: auto; 
+        font-size: 20px; 
+    }
+
+    .chatbox-container {
+        width: auto; 
+        bottom: 20px; 
+        right: 20px; 
+    }
+}
+

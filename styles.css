@@ -378,21 +378,3 @@ footer{
         right: 10px;
     }
 }
-
-@media screen and (min-width: 601px) {
-    .index-main {
-        padding: 100px; 
-    }
-
-    .index-main button {
-        width: auto; 
-        font-size: 20px; 
-    }
-
-    .chatbox-container {
-        width: auto; 
-        bottom: 20px; 
-        right: 20px; 
-    }
-}
-

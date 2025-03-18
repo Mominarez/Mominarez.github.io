@@ -362,19 +362,5 @@ footer{
 }
 
 /*https://www.w3schools.com/css/css3_mediaqueries.asp*/
-@media screen and (max-width: 600px) {
-    .index-main {
-        padding: 180px; 
-    }
 
-    .index-main button {
-        width: 90%; 
-        font-size: 18px;
-    }
 
-    .chatbox-container {
-        width: 100%;
-        bottom: 10px;
-        right: 10px;
-    }
-}

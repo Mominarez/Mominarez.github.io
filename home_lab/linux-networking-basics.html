@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Linux Networking Basics Lab | Momina Rezai</title>
+
+<link rel="stylesheet" href="../styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<aside class="sidebar">
+
+<h2>NAV</h2>
+
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../pages/about.html">About</a></li>
+<li><a href="../pages/notes.html">Learning Notes</a></li>
+<li><a href="../pages/homelab.html">Home Lab</a></li>
+<li><a href="../resume/momina_rezai_resume.pdf">Resume</a></li>
+</ul>
+
+</aside>
+
+<main class="content">
+
+<div class="note-post">
+
+<h1>Linux Networking Basics Lab (Ubuntu + VirtualBox)</h1>
+
+<p>
+This lab explores a few fundamental Linux networking tools used to verify connectivity,
+analyze network routes, and test DNS resolution. The goal of the lab was to gain
+hands on experience with common networking commands used by system administrators
+and network engineers.
+</p>
+
+
+<h2>Lab Environment</h2>
+
+<p>
+Before running any networking commands, I first created a controlled testing environment
+using virtualization.
+</p>
+
+<ul>
+<li><strong>Host OS:</strong> Windows</li>
+<li><strong>Virtualization:</strong> Oracle VirtualBox</li>
+<li><strong>Guest OS:</strong> Ubuntu 24.04 LTS</li>
+<li><strong>Network Mode:</strong> NAT</li>
+</ul>
+
+<p>
+Using NAT networking allows the virtual machine to access the internet through the
+host computer's network connection while remaining isolated from the host system.
+</p>
+
+
+<h2>Checking Network Interfaces</h2>
+
+<p>
+Before testing connectivity, it is important to verify that the system has an active
+network interface and an assigned IP address.
+</p>
+
+<p>
+The <b><code>ip addr</code></b> command displays information about all network interfaces,
+including IP addresses, MAC addresses, and operational state.
+</p>
+
+<img src="../assets/images/ip_addr.png" alt="Output of ip addr command">
+
+<h3>From the output, several important details can be observed.</h3>
+
+<ul>
+<li>
+<strong>lo (loopback interface)</strong><br>
+Used for internal communication within the system using the address 127.0.0.1. The /8 after the address represents
+CIDR notation, which indicates the network portion of the address.
+</li>
+
+<li>
+<strong>enp0s3 (primary interface)</strong><br>
+Main network interface for the virtual machine.
+</li>
+
+<li>
+<strong>IPv4 Address:</strong> 10.0.2.15<br>
+Assigned dynamically by the VirtualBox NAT network. The /24 following the address is also CIDR notation and represents the subnet used 
+by the virtual network.
+</li>
+
+<li>
+<strong>Interface State:</strong> UP<br>
+Indicates the interface is active and functioning.
+</li>
+</ul>
+
+<p>CIDR notation is something I'm currently learning more about while studying networking fundamentals and subnetting.</p>
+
+
+
+<h2>Testing Network Connectivity with Ping</h2>
+
+<p>
+The next step was verifying internet connectivity using the <code>ping</code> command.
+</p>
+
+<pre>
+ping google.com
+</pre>
+
+<p>
+The ping command sends ICMP (Internet Control Message Protocol)
+echo requests to a target host. If the host is reachable, it responds with echo replies as seen in my terminal below.
+</p>
+
+<img src="../assets/images/ping_command.png" alt="Output of ping command">
+
+<p>
+I pressed ctrl + c to stop the ICMP packets and received ping statistics from google's server.
+Which shows the output of packets transmitted, packets received, the packet loss percentage and round trip times.
+</p>
+
+<img src="../assets/images/ping_statistics.png" alt="ping statistics">
+
+<h2>Analyzing the Network Path with Traceroute</h2>
+
+<p>
+Traceroute identifies the routers (hops) that packets pass through when traveling
+to a remote host.
+</p>
+
+<p>
+Traceroute was not installed by default, so it was installed using:
+</p>
+
+<pre>
+sudo apt install traceroute
+</pre>
+
+<p>
+Then the command was executed:
+</p>
+
+<pre>
+traceroute google.com
+</pre>
+
+<img src="../assets/images/traceroute_command.png" alt="Output of traceroute command">
+
+<p>The first hop displayed in the output corresponds to the VirtualBox NAT gateway:</p>
+<strong>10.0.2.2</strong>
+<p>This is the internal gateway used by VirtualBox to route traffic from the virtual machine to the host system's network.</p>
+
+<p>The remaining hops represent routers within the ISP (Internet Service Provider) 
+and internet infrastructure that forward packets toward the destination server.
+Traceroute is particularly useful for diagnosing network latency issues or identifying where connectivity problems occur along a network path.
+Some hops displayed three stars: <b><code>* * *</code></b>, which indicates that the router at that hop did not respond to the traceroute
+probes within the timeout period. This can occur when routers are configured to block or ignore traceroute requests for
+security or performance.
+</p>
+
+
+<h2>Testing DNS Resolution</h2>
+
+<p>
+In addition to connectivity testing, it's important to verify that domain name resolution is functioning properly. 
+DNS (Domain Name System) is responsible for translating readable domain names like my website or my example
+google.com into IP addresses. This is tested using the command: <pre><b><code>nslookup</code></b></pre>
+
+</p>
+
+<img src="../assets/images/nslookup_command.png" alt="Output of nslookup command">
+
+<p>
+The output shows the DNS server used for the query and the IP address associated with the domain name.
+This confirms that DNS resolution is working correctly within the virtual machine.
+</p>
+
+<h2>Checking the Routing Table</h2>
+
+<p>
+Another useful networking command is:
+</p>
+
+<pre>
+ip route
+</pre>
+
+<p>
+This command displays the system's routing table, which determines how packets are
+forwarded to different networks. It specifies which gateway or interface should be used to reach specific destinations.
+</p>
+
+<img src="../assets/images/ip_route.png" alt="Output of ip route command">
+
+<p>
+The routing table includes the default gateway:
+</p>
+
+<pre>
+10.0.2.2
+</pre>
+
+<p>
+This gateway represents the VirtualBox NAT router that forwards traffic from the
+virtual machine to external networks.
+</p>
+
+
+<h2>What I Learned</h2>
+
+<p>
+Through this lab I learned how Linux networking tools can be used to troubleshoot
+connectivity and understand how systems communicate across networks.
+</p>
+
+<ul>
+<li>How to verify network interfaces using <code>ip addr</code></li>
+<li>How to test connectivity with <code>ping</code></li>
+<li>How to analyze network routes with <code>traceroute</code></li>
+<li>How DNS resolution works using <code>nslookup</code></li>
+<li>How packets are routed using the routing table <code>ip route</code></li>
+</ul>
+
+
+<h2>Sources</h2>
+
+<ul>
+<li>https://www.geeksforgeeks.org/linux-unix/network-configuration-trouble-shooting-commands-linux/</li>
+<li>https://www.thewindowsclub.com/how-to-allow-pings-icmp-echo-requests-through-windows-firewall</li>
+<li>https://www.baeldung.com/linux/traceroute-three-stars</li>
+<li>https://www.golinuxcloud.com/ip-route-command-in-linux/</li>
+</ul>
+
+</div>
+
+</main>

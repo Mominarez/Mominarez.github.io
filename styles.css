@@ -1,0 +1,384 @@
+/* CUSTOM FONT*/
+
+@font-face {
+font-family: 'CosmicVibrant';
+src: url('assets/fonts/CosmicVibrant-WywzY.otf') format('opentype');
+font-weight: normal;
+font-style: normal;
+}
+
+body {
+margin:0;
+padding:0;
+font-family:'Bitter', serif;
+background:#0e0f14;
+color:#e6e6e6;
+line-height:1.6;
+}
+
+/* style grid overlay */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+background-size:40px 40px;
+pointer-events:none;
+z-index:-1;
+}
+
+/* link styling */
+
+a{
+color:#6ce0d6;
+text-decoration:none;
+}
+
+a:hover{
+color:#8ff7ed;
+}
+
+
+/* PAGE LAYOUT */
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+
+/*SIDEBAR NAVIGATION*/
+
+.sidebar{
+width:220px;
+background:#14161c;
+padding:25px;
+border-right:1px solid #262a33;
+position:sticky;
+top:0;
+}
+
+/* sidebar title */
+
+.sidebar h2{
+color:#8ff7ed;
+margin-bottom:20px;
+letter-spacing:1px;
+}
+
+/* navigation list */
+
+.sidebar ul{
+list-style:none;
+padding:0;
+}
+
+.sidebar li{
+margin:14px 0;
+}
+
+.sidebar a{
+color:#b9c1c9;
+font-size:0.95rem;
+}
+
+.sidebar a:hover{
+color:#6ce0d6;
+}
+
+
+/* MAIN CONTENT */
+
+.content{
+flex:1;
+padding:40px;
+max-width:1100px;
+margin:auto;
+}
+
+
+/* DASHBOARD GRID
+Used for homepage cards*/
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+
+/* CARDS / PANELS*/
+
+.card{
+background:#14161c;
+border:1px solid #262a33;
+border-radius:12px;
+padding:20px;
+transition:all .2s ease;
+}
+
+/* small hover interaction */
+
+.card:hover{
+border-color:#6ce0d6;
+transform:translateY(-2px);
+}
+
+.card h3{
+margin-top:0;
+font-size:1.1rem;
+color:#8ff7ed;
+}
+
+.card p{
+font-size:.9rem;
+color:#b9c1c9;
+}
+
+
+/*longer reading pages*/
+
+.note-post{
+max-width:750px;
+margin:auto;
+line-height:1.7;
+}
+
+.note-post h1{
+margin-top:0;
+}
+
+
+/* SOCIAL ICON LINKS */
+
+.social-links{
+display:flex;
+gap:15px;
+margin-top:10px;
+}
+
+.social-links img{
+width:26px;
+height:26px;
+transition:transform .2s ease;
+}
+
+.social-links img:hover{
+transform:scale(1.1);
+}
+
+
+/*FLOATING MUSIC PLAYER
+Small Spotify player in bottom corner*/
+
+.floating-song{
+position:fixed;
+bottom:20px;
+right:20px;
+width:300px;
+height:80px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 0 20px rgba(0,0,0,.6);
+}
+
+
+/* RESPONSIVE DESIGN*/
+
+@media(max-width:768px){
+
+.container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+border-right:none;
+border-bottom:1px solid #262a33;
+}
+
+.content{
+padding:25px;
+}
+
+/* hide music player on small screens */
+
+.floating-playlist{
+display:none;
+}
+
+}
+
+
+/*TERMINAL STYLE LABEL [ MOMINA.REZAI ] */
+
+.terminal-label{
+display:inline-block;
+font-family:monospace;
+font-size:12px;
+letter-spacing:2px;
+color:#6ce0d6;
+border:1px solid #6ce0d6;
+padding:4px 8px;
+border-radius:4px;
+margin-bottom:10px;
+opacity:0.9;
+}
+
+.card{
+text-decoration:none;
+color:inherit;
+}
+
+/*NOTES GRID */
+
+.notes-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:22px;
+margin-top:25px;
+}
+
+/* bubble style note cards */
+
+.note-bubble{
+display:block;
+background:#161820;
+border:1px solid #262a33;
+border-radius:25px;
+padding:22px;
+text-decoration:none;
+color:inherit;
+transition:all .25s ease;
+box-shadow:0 0 18px rgba(0,0,0,.35);
+}
+
+.note-bubble:hover{
+border-color:#6ce0d6;
+transform:translateY(-4px);
+box-shadow:0 0 22px rgba(108,224,214,.12);
+}
+
+.note-bubble h3{
+margin-top:0;
+color:#8ff7ed;
+}
+
+.note-bubble p{
+font-size:.9rem;
+color:#b9c1c9;
+}
+
+/* HOMEPAGE INTRO */
+.intro{
+text-align:center;
+margin-top:40px;   /* higher up */
+margin-bottom:50px;
+}
+
+/* huge title name */
+
+.main-name{
+font-family:'CosmicVibrant', monospace;
+font-size:5rem; 
+letter-spacing:4px;
+margin:5px 0;
+color:#8ff7ed;
+
+/* textglow */
+
+text-shadow:
+0 0 10px rgba(108,224,214,.6),
+0 0 25px rgba(108,224,214,.35);
+}
+
+/* description text */
+
+.intro-text{
+font-size:1.15rem;
+color:#b9c1c9;
+max-width:600px;
+margin:auto;
+margin-top:10px;
+line-height:1.7;
+}
+
+.note-post h1{
+font-size:2rem;
+margin-bottom:25px;
+white-space:nowrap;
+}
+
+.note-post h2{
+margin-top:40px;
+margin-bottom:12px;
+}
+
+.note-post p{
+margin-bottom:15px;
+}
+.note-post ul{
+margin:15px 0 25px 20px;
+}
+
+.note-post li{
+margin-bottom:8px;
+}
+
+.note-post{
+max-width:750px;
+margin:auto;
+line-height:1.7;
+}
+
+.note-post img{
+max-width:100%;
+border-radius:6px;
+margin:20px 0;
+box-shadow:0 0 10px rgba(0,0,0,0.35);
+}
+
+pre{
+background:#111318;
+border:1px solid #2a2e37;
+padding:14px;
+border-radius:6px;
+overflow-x:auto;
+font-family:monospace;
+font-size:0.9rem;
+margin:20px 0;
+}
+
+/* RECENT LAB SECTION*/
+
+.recent-lab{
+margin-top:40px;
+text-align:center;
+}
+
+.recent-lab h2{
+font-size:0.9rem;
+letter-spacing:3px;
+color:#6ce0d6;
+margin-bottom:8px;
+font-family:monospace;
+}
+
+.recent-lab a{
+font-size:1rem;
+color:#8ff7ed;
+text-decoration:none;
+transition:opacity 0.2s ease;
+}
+
+.recent-lab a:hover{
+opacity:0.7;
+}
+
+
